@@ -204,20 +204,7 @@ func inspect(cfg *Config) error {
 		return fmt.Errorf("You have not caught that pokemon")
 	}
 
-	fmt.Printf("Name: %v\n", pokemon.Name)
-	fmt.Printf("Height: %v\n", pokemon.Name)
-	fmt.Printf("Weight: %v\n", pokemon.Name)
-	fmt.Println("Stats:")
-
-	for _, v := range pokemon.Stats {
-		fmt.Printf("  - %v: %v\n", v.Stat.Name, v.BaseStat)
-	}
-
-	fmt.Println("Types:")
-
-	for _, v := range pokemon.Types {
-		fmt.Printf("  - %v\n", v.Type.Name)
-	}
+	pokemon.Print()
 
 	return nil
 }

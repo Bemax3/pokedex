@@ -1,5 +1,7 @@
 package api
 
+import "fmt"
+
 type Pokemap struct {
 	Name string `json:"name"`
 	Url  string `json:"url"`
@@ -45,6 +47,23 @@ type Pokemon struct {
 			Url  string `json:"url"`
 		} `json:"type"`
 	} `json:"types"`
+}
+
+func (pokemon *Pokemon) Print() {
+	fmt.Printf("Name: %v\n", pokemon.Name)
+	fmt.Printf("Height: %v\n", pokemon.Name)
+	fmt.Printf("Weight: %v\n", pokemon.Name)
+	fmt.Println("Stats:")
+
+	for _, v := range pokemon.Stats {
+		fmt.Printf("  - %v: %v\n", v.Stat.Name, v.BaseStat)
+	}
+
+	fmt.Println("Types:")
+
+	for _, v := range pokemon.Types {
+		fmt.Printf("  - %v\n", v.Type.Name)
+	}
 }
 
 type Pokedex map[string]Pokemon
